@@ -2,6 +2,9 @@ package tn.enicarthage.cinema.entities;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,5 +28,6 @@ public class Categorie {
 	@Column(length = 75)
 	String nom;
 	@OneToMany(mappedBy = "categorie")
+	@JsonProperty(access = Access.WRITE_ONLY)
 	List<Film> films;
 }

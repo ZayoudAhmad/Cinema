@@ -2,6 +2,9 @@ package tn.enicarthage.cinema.entities;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,9 +28,12 @@ public class Salle {
 	String nom;
 	int nombrePlace;
 	@ManyToOne
+	@JsonProperty(access = Access.WRITE_ONLY)
 	Cinema cinema;
 	@OneToMany(mappedBy = "salle")
+	@JsonProperty(access = Access.WRITE_ONLY)
 	List<Place> places;
 	@OneToMany(mappedBy = "salle")
+	@JsonProperty(access = Access.WRITE_ONLY)
 	List<Projection> projections;
 }

@@ -2,6 +2,10 @@ package tn.enicarthage.cinema.entities;
 
 import java.util.Date;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -29,6 +33,7 @@ public class Film {
 	double duree;
 	private String photo;
 	@OneToMany(mappedBy = "film")
+	@JsonProperty(access = Access.WRITE_ONLY)
 	List<Projection> projections;
 	@ManyToOne
 	Categorie categorie;
