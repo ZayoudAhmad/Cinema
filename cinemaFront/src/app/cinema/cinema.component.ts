@@ -14,7 +14,7 @@ export class CinemaComponent implements OnInit {
   public currentVille;
   public currentCinema;
 
-  constructor(private cinemaService: CinemaService){}
+  constructor(public cinemaService: CinemaService){}
 
   ngOnInit(){
     this.cinemaService.getVilles()
@@ -39,6 +39,14 @@ export class CinemaComponent implements OnInit {
     this.cinemaService.getSalles(c)
     .subscribe(data =>{
       this.salles=data;
+      this.salles._embedded.salles.forEach(salle => {
+        this.cinemaService.getProjections(salle)
+        .subscribe(data =>{
+          salle.projections=data;
+        }, err=>{
+          console.log(err);
+        })
+      });
     }, err=>{
       console.log(err);
     })
