@@ -8,6 +8,8 @@ import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import tn.enicarthage.cinema.entities.Film;
+import tn.enicarthage.cinema.entities.Salle;
+import tn.enicarthage.cinema.entities.Ticket;
 import tn.enicarthage.cinema.services.ICinemaInitService;
 
 @SpringBootApplication
@@ -21,7 +23,7 @@ public class CinemaApplication {
 	@Bean
 	CommandLineRunner start(ICinemaInitService cinemaInitService, RepositoryRestConfiguration restConfiguration) {
 		return args -> {
-			restConfiguration.exposeIdsFor(Film.class);
+			restConfiguration.exposeIdsFor(Film.class, Salle.class, Ticket.class);
 			cinemaInitService.initVilles();
 			cinemaInitService.initCinemas();
 			cinemaInitService.initSalles();
