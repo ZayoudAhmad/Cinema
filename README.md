@@ -1,6 +1,7 @@
 # Cinema Web Application
 
-Welcome to the Cinema web application! This project is a simple yet powerful tool designed to help users explore and book movie screenings across various cinemas and cities.
+Welcome to the Cinema web application! This project offers a seamless and intuitive platform for exploring, selecting, and booking movie screenings across a diverse range of cinemas and cities, crafted through the integration of Spring Boot in the backend and Angular in the frontend.
+
 ![1](https://github.com/ZayoudAhmad/Cinema/assets/114430032/eef9433a-26c1-4753-a9c6-fc17522cade7)
 ## Features
 
